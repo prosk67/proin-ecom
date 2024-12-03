@@ -15,6 +15,7 @@
     .table_deg
     {
         border: 2px solid green;
+        width: 100%;
 
     }
 
@@ -31,6 +32,7 @@
     {
         border: 1px solid skyblue;
         text-align: center;
+        color: white;
     }
     </style>      
   </head>
@@ -50,25 +52,41 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Image</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                     @foreach ($product as $products )
                         
                     <tr>
                         <td>{{$products->title }}</td>
-                        <td>{{$products->description }}</td>
+                        <td>{!!Str::limit($products->description,50)!!}</td>
                         <td>{{$products->category }}</td>
                         <td>{{$products->price }}</td>
                         <td>{{$products->quantity }}</td>
                         <td>
                             <img height="120px" width="120px" src="products/{{$products->image }}" alt="">
                         </td>
+                        <td>
+                          <a class="btn btn-success" href="{{url('update_product',$products->id)}}">Update</a>
+                        </td>
+                        <td>
+                          <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_product',$products->id)}}">Delete</a>
+                        </td>
                     </tr>
                     @endforeach
                 </table>
+
+                
+            </div>
+            <div class="div_deg">
+
+              {{$product->onEachSide(1)->links()}}
             </div>
           </div>
       </div>
     </div>
+    @include('admin.js')
+
     <!-- JavaScript files-->
     <script src="{{asset('/admincss/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/admincss/vendor/popper.js/umd/popper.min.js')}}"> </script>

@@ -59,7 +59,7 @@
                     </div>
                     <div class="input_deg">
                         <label>Description</label>
-                        <textarea name="description" required>
+                        <textarea name="description" required></textarea>
                     </div>
                     <div class="input_deg">
                         <label>Price</label>
@@ -71,8 +71,8 @@
                     </div>
                     <div class="input_deg">
                         <label>Product Category</label>
-                        <select required name="" id="">
-                            <option value="">Select a Option</option>
+                        <select required name="category" id="">
+                            <option>Select an Option</option>
                             @foreach($category as $category)
                             <option value="{{$category->category_name}}">{{$category->category_name}}</option>
                             @endforeach
