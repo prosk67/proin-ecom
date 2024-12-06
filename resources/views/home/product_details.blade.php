@@ -3,6 +3,20 @@
 
 <head>
   @include('home.css')
+  <style type="text/css">
+    .div_center
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .detail-box
+    {
+      padding: 16px;
+    }
+  </style>
 </head>
 
 <body>
@@ -21,11 +35,12 @@
           <div class="row">
            
               
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-md-12">
               <div class="box">
                 
-                <div class="img-box">
-                  <img src="/products/{{$data->image}}" alt="">
+                <div class="div_center">
+                  
+                  <img width="400px" src="/products/{{$data->image}}" alt="">
                 </div>
                 <div class="detail-box">
                   <h6>{{$data->title}}</h6>
@@ -35,6 +50,22 @@
                       {{$data->price}}
                     </span>
                   </h6>
+                </div>
+                <div class="detail-box">
+                  <h6>Category: {{$data->category}}</h6>
+                  <h6>
+                    Available Quantity
+                    <span>
+                      {{$data->quantity}}
+                    </span>
+                  </h6>
+                </div>
+                <div class="detail-box">
+                  
+                    <p>
+                      {{$data->description}}
+                    </p>
+                  
                 </div>
                 
                 
