@@ -80,4 +80,31 @@ class HomeController extends Controller
         return redirect()->back();
          
     }
+    public function my_cart()
+    {
+        if(Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id;
+            $count = Cart::where('user_id',$userid)->count();
+            $cart = Cart::where('user_id',$userid)->get();
+
+        }
+        else
+        {
+            $count = '';
+            
+        }
+        
+        
+        return view('home.my_cart',compact('count','cart'));
+    }
+
+    public function delete_cart($id)
+    {
+        $cart = Cart::find($id);
+        $cart->delete();
+        toastr()->timeOut(1000)->addDeleted('Product');
+        return redirect()->back();
+    }
 }
