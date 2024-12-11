@@ -27,6 +27,9 @@
 
         td
         {
+            
+            justify-content: center;
+            align-items: center;
             color: white;
             padding: 10px;
             border: 1px solid black;
@@ -52,6 +55,7 @@
                         <th>Image</th>
                         <th>Status</th>
                         <th>Change Status</th>
+                        <th>Print PDF</th>
                     </tr>
                     @foreach ($data as $data )
                         
@@ -77,6 +81,7 @@
                             <a class="btn btn-danger" href="{{url('on_the_way',$data->id)}}">On The Way</a>
                             <a class="btn btn-success" href="{{url('delivered',$data->id)}}">Delivered</a>
                         </td>
+                        <td><a class="btn btn-secondary" href="{{url('print_pdf',$data->id)}}">Print PDF</a></td>
                     </tr>
                     @endforeach
                 </table>
