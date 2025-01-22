@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +51,4 @@ Route::get('view_order',[AdminController::class, 'view_order'])->middleware(['au
 Route::get('on_the_way/{id}',[AdminController::class, 'on_the_way'])->middleware(['auth','admin']);
 Route::get('delivered/{id}',[AdminController::class, 'delivered'])->middleware(['auth','admin']);
 Route::get('print_pdf/{id}',[AdminController::class, 'print_pdf'])->middleware(['auth','admin']);
+

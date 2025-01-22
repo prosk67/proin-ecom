@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Enan\PathaoCourier\Facades\PathaoCourier;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -23,6 +24,8 @@ class HomeController extends Controller
     }
 
     public function home(){
+        $pathao = PathaoCourier::GET_CITIES();
+        dd($pathao);
         $product = Product::all();
         if(Auth::id())
         {
