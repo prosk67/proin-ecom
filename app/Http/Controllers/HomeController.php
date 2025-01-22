@@ -24,8 +24,7 @@ class HomeController extends Controller
     }
 
     public function home(){
-        $pathao = PathaoCourier::GET_CITIES();
-        dd($pathao);
+        
         $product = Product::all();
         if(Auth::id())
         {
