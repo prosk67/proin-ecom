@@ -25,6 +25,9 @@ class HomeController extends Controller
 
     public function home(){
         
+        $pathao = PathaoCourier::GET_CITIES();
+        
+
         $product = Product::all();
         if(Auth::id())
         {
@@ -38,7 +41,7 @@ class HomeController extends Controller
         }
         
 
-        return view('home.index',compact('product','count'));
+        return view('home.index',compact('product','count','pathao'));
     }
 
     public function login_home()

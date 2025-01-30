@@ -9,6 +9,7 @@
   <div class="hero_area">
     @include('home.header')
     @include('home.slider')
+    {{ json_encode($pathao["data"]["data"][0]["city_id"])}}
   </div>
   <!-- end hero area -->
 
